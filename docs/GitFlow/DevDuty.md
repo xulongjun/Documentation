@@ -4,10 +4,16 @@ Here is the explanation of a developer's duty with GitLab. In GitLab repositorie
 [You can look at an overview of this strategy here](https://gitversion.net/docs/learn/branching-strategies/gitflow/). 
 
 It has two branches. 
-  * One call Master, that represents what has been delivered.
+  * One call Main, that represents what has been delivered.
   * One call Develop, that represents what has been developed since the last release.
 
-# 1. Feature to develop
+The developer has 3 duty : 
+1. Feature development
+2. Bug fixes in production
+3. Preparing releases
+
+
+# 1. Feature development
 
 In this section, we outline the process for developers to create a local feature branch for new user stories, adhering to the GitFlow branching strategy. This ensures that new features are developed in isolation, improving codebase stability and facilitating parallel development.
 
@@ -121,74 +127,95 @@ Once your feature is complete and tested, it's time to merge it into the develop
    ```
 
 
-# 2. Bug in production
+# 2. Bug fixes in production
 
-## 2.1. Create a local fix branch for a bug correction.
+## Step 1: Create a Hotfix Branch
 
-When you have a new fix to correct, you need to create a new branch from the master branch. 
-In Visual Studio :
-	1. Go to "Team Explorer";
-	2. Click on the project of the US in. If you don't see that option, [configure GitHub Connection in Visual Studio](./VisualStudioGitHubConnection.md);
-	3. Click on or clone the repository of the project to your computer;
-	4. Click on "Git Repository";
-	5. Click on remotes => origin => master;
-	6. Right click on master and select "New local branch from...";
-	7. Name the branch like this : need to have the prefix "fix" then "/" and then the bug number or a short description title without space. Ex: "fix/ASD-8882";
-	8. Click on create.
-		
-You now have your local branch created and can do your duty on it.
-You will use this created branch until you are ready to merge to the master branch.
+Hotfix branches are created from the `main` branch, which represents the current production state.
 
-## 2.2. Commit to the feature branch.
+1. **Switch to the `main` branch:**
 
-1. Go to "Team Explorer";
-2. Go to "Git Changes";
-3. Click on the fetch down arrow to look if new commit on the branch have been done by another developer;
-	* if it is the case, do a pull request (arrow just after the pull request arrow) then correct merge issues if it has.
-4. Enter a message for your commit and click on commit button;
-5. Click on the push arrow up button to push back your change to the server. 
+   ```bash
+   git checkout main
+   ```
 
-** You can have multiple commits on your local computer and commit it in one time, but it is recommended to commit as you create your commit. **
+2. **Pull the latest changes from the remote repository to ensure your local copy is up to date**
 
-## 2.3. The fix development are over.
+   ```bash
+   git pull origin main
+   ```
 
-You now have finished the development of the fix and have to merge to the master branch.  
+3. **Create a new hotfix branch with a descriptive name that includes the version number and a brief hint about the bug, e.g.**
 
-1. Go to "Git Changes" in Visual Studio;
-2. Open your branch and click on "Remotes" and select "origin/master";
-3. Click on "Merge into Current branch";
-4. Resolve any merge conflict then commit and push the result;
-5. Go to your GitHub project;
-6. Click on "pull request" and then on "New pull request";
-7. Select "master" as target branch and complete the pull request information if needed then create it;
-8. Wait for the review from your tech lead.
+   ```bash
+   git checkout -b hotfix/<VersionNumber>-fix-<ErrorName>
+   ```
+   For example hotfix/2.4.1-fix-login-error
 
-## 2.4. You have receive a pull request review to accomplish.
+   ```bash
+   git checkout -b hotfix/2.4.1-fix-login-error
+   ```
 
-1. Follow the link received in the email;
-2. Approve, ask for a change or refuse the pull request.
+## Step 2: Fix the Bug
 
-## 2.5. Your pull request review is done.
+Work on your hotfix branch to address the bug. Keep your changes as focused as possible to avoid introducing new issues.
+Commit your changes with a clear and detailed commit message. 
 
-1. Click on "Attemp merge";
-2. Delete your branch if the development are over.
+## Step 3: Review and Test the Hotfix
 
-Your code is now merged on the master branch.
+Before merging the hotfix into production, it must be reviewed and tested carefully to ensure it does not introduce new issues.
 
-## 2.6. Create pull request to develop.
+1. **Push the hotfix branch to the remote repository**
 
-1. Go to your GitHub project;
-2. Click on "pull request" and then on "New pull request";
-3. Select "develop" as target branch and complete the pull request information if needed then create it;
-4. Wait for the review from your tech lead.
-5. Click on "Attemp merge";
+   ```bash
+   git push origin hotfix/<VersionNumber>-fix-<ErrorName>
+   ```
 
-Your code is now merged on the develop branch.
+2. **Create a pull request from your hotfix branch to the main branch. Ensure that the pull request undergoes a thorough review process by the team**
 
-## 3. Merge a remote branch to our branch.
+3. **After approval, merge the hotfix into main. Do not delete the hotfix branch yet, as it will also need to be merged into develop**
 
-1. Go to "Git Changes" in Visual Studio;
-2. Click on your current branch at the top of the screen;
-3. Click on "Remotes" and then right click on the branch you want to merge to your current branch. Ex : "origin/develop";
-4. Choose the option "Merge into Current Branche";
-5. Correct the merge issues and then the modifications on the remote branch is now included in your branch.
+## Step 4: Deploy the Hotfix
+
+Once the hotfix is merged into the production branch, deploy the changes to the production environment according to your project's deployment process.
+
+## Step 5: Merge the Hotfix into Develop
+
+1. **Switch and pull to the develop branch**
+
+   ```bash
+   git checkout develop
+   git pull origin develop
+   ```
+
+2. **Merge the hotfix branch into develop**
+
+   ```bash
+   git merge --no-ff hotfix/<VersionNumber>-fix-<ErrorName>
+   ```
+
+3. **Resolve any merge conflicts that arise and commit the merge**
+
+4. **Push the updated develop branch to the remote repository**
+
+   ```bash
+   git push origin develop
+   ```
+
+## Step 6: Clean Up
+
+After the hotfix has been successfully merged into both main and develop, you can delete the hotfix branch.
+
+1. **Delete the hotfix branch**
+
+   ```bash
+   git push origin --delete hotfix/<VersionNumber>-fix-<ErrorName>
+   ```
+
+   Optionally, delete the local hotfix branch if you no longer need it:
+
+   ```bash
+   git branch -d hotfix/<VersionNumber>-fix-<ErrorName>
+   ```
+
+# 3. Preparing releases
