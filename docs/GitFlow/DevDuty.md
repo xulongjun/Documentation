@@ -21,6 +21,7 @@ To start working on a new feature, you'll need to create a feature branch based 
 
    ```bash
    git checkout develop
+   ```
 
 2. **Pull the Latest Updates**
 
@@ -31,6 +32,7 @@ To start working on a new feature, you'll need to create a feature branch based 
 
    ```bash
    git pull origin develop
+   ```
 
 3. **Create a New Feature Branch**
 
@@ -38,6 +40,7 @@ To start working on a new feature, you'll need to create a feature branch based 
 
    ```bash
    git checkout -b feature/<feature-name>
+   ```
 
 
 ## Step 2: Develop Your Feature
@@ -57,6 +60,7 @@ Develop your feature locally, commit your changes frequently, and push your bran
 
    ```bash
    git push -u origin feature/<feature-name>
+   ```
 
 ## Step 3: Keep Your Feature Branch Up to Date
 
@@ -66,21 +70,25 @@ It's important to regularly merge changes from the develop branch into your feat
 
    ```bash
    git checkout develop
+   ```
 
 2. **Pull the latest changes from origin/develop**
 
    ```bash
    git pull origin develop
+   ```
 
 3. **Switch back to your feature branch**
 
    ```bash
    git pull origin develop
+   ```
 
 4. **Merge changes from develop into your feature branch**
 
    ```bash
    git merge develop
+   ```
 
 ## Step 4: Code Review and Pull Request
 
@@ -90,10 +98,14 @@ Once your feature is complete and tested, it's time to merge it into the develop
 
    ```bash
    git push origin feature/<feature-name>
+   ```
 
 2. **Go to the repository on your Git hosting service (e.g., GitHub, Bitbucket, GitLab) and create a new pull request for your feature branch into the develop branch.**
+
 3. **Fill out the pull request form with a title and description that clearly describes the feature and any relevant details. Assign reviewers as per your project's workflow.**
+
 4. **Once the pull request is approved and any discussions are resolved, merge your feature branch into develop.**
+
 5. **Delete the Feature Branch**
    After your feature branch has been successfully merged, it's good practice to delete the branch from the remote repository to keep the branch list clean.
    Delete the remote feature branch:
@@ -103,8 +115,10 @@ Once your feature is complete and tested, it's time to merge it into the develop
    ```
 
    Optionally, delete the local branch if you no longer need it:
+
    ```bash
    git branch -d feature/<feature-name>
+   ```
 
 
 # 2. Bug in production
