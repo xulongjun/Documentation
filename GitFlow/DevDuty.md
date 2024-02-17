@@ -1,12 +1,12 @@
 [Go back home](./README.md)
 # developer duty
 
-Here is the explanation of a developer duty with GitHub. In GitHub repositories, the GitFlow is the branching strategy that has been put in place. 
-[You can look an overview of this strategy here](https://gitversion.net/docs/learn/branching-strategies/gitflow/). 
+Here is the explanation of a developer's duty with GitHub. In GitHub repositories, the GitFlow is the branching strategy that has been put in place. 
+[You can look at an overview of this strategy here](https://gitversion.net/docs/learn/branching-strategies/gitflow/). 
 
 It has two branches. 
-  * One call Main, that represent what's have been delivered.
-  * One call Develop, that represent what have been developped since the last release.
+  * One call Main, that represents what has been delivered.
+  * One call Develop, that represents what has been developed since the last release.
 
 # 1. Feature to develop
 
@@ -25,7 +25,8 @@ To start working on a new feature, you'll need to create a feature branch based 
 
 2. **Pull the Latest Updates**
 
-   Before creating a new feature branch, make sure your `develop` branch is up to date with the remote repository. This minimizes merge conflicts and ensures you're working with the latest codebase.
+   Before creating a new feature branch, ensure your `develop` branch is up to date with the remote repository. This minimizes merge conflicts and ensures 
+   you're working with the latest codebase.
 
    Execute the following command to pull the latest updates from the remote `develop` branch:
 
@@ -34,7 +35,7 @@ To start working on a new feature, you'll need to create a feature branch based 
 
 3. **Create a New Feature Branch**
 
-   To start working on your feature, create a branch off the `develop` branch. Use a descriptive name for your branch that reflects the feature you're working on. The convention is `feature/<feature-name>`.
+   To start working on your feature, create a branch of the `develop` branch. Use a descriptive name for your branch that reflects the feature you're working on. The convention is `feature/<feature-name>`.
 
    ```bash
    git checkout -b feature/<feature-name>
@@ -92,7 +93,7 @@ Once your feature is complete and tested, it's time to merge it into the develop
    git push origin feature/<feature-name>
 
 2. **Go to the repository on your Git hosting service (e.g., GitHub, Bitbucket, GitLab) and create a new pull request for your feature branch into the develop branch.**
-3. **Fill out the pull request form with a title and description that clearly describe the feature and any relevant details. Assign reviewers as per your project's workflow.**
+3. **Fill out the pull request form with a title and description that clearly describes the feature and any relevant details. Assign reviewers as per your project's workflow.**
 4. **Once the pull request is approved and any discussions are resolved, merge your feature branch into develop.**
 5. **Delete the Feature Branch**
    After your feature branch has been successfully merged, it's good practice to delete the branch from the remote repository to keep the branch list clean.
@@ -107,7 +108,7 @@ Once your feature is complete and tested, it's time to merge it into the develop
 
 # 2. Bug in production
 
-## 2.1. Create local fix branch for a bug correction.
+## 2.1. Create a local fix branch for a bug correction.
 
 When you have a new fix to correct, you need to create a new branch from the master branch. 
 In Visual Studio :
