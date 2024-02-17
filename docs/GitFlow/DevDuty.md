@@ -1,5 +1,4 @@
-[Go back home](./README.md)
-# developer duty
+# Developer duty
 
 Here is the explanation of a developer's duty with GitHub. In GitHub repositories, the GitFlow is the branching strategy that has been put in place. 
 [You can look at an overview of this strategy here](https://gitversion.net/docs/learn/branching-strategies/gitflow/). 
