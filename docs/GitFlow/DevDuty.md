@@ -89,7 +89,7 @@ It's important to regularly merge changes from the develop branch into your feat
 3. **Switch back to your feature branch**
 
    ```bash
-   git pull origin develop
+   git checkout feature/<feature-name>
    ```
 
 4. **Merge changes from develop into your feature branch**
@@ -221,3 +221,80 @@ After the hotfix has been successfully merged into both main and develop, you ca
    ```
 
 # 3. Preparing releases
+
+When the development cycle for a new version is complete and it's ready for deployment, a release branch is created. This section details the steps to prepare and finalize a release in the GitFlow workflow.
+
+## Step 1: Start and Prepare the Release Branch
+
+Release branches are created from the `develop` branch and are used to prepare a new production release.
+
+1. **Switch to the `develop` branch and pull the latest changes from the remote repository**
+
+   ```bash
+   git checkout develop
+   git pull origin develop
+   ```
+
+2. **Create a release branch with a clear version number <versionNumber> e.g release/1.2.0**
+
+   ```bash
+   git checkout -b release/<versionNumber>
+   ```
+
+3. **Commit the changes with a message indicating the release preparation**
+
+   Make necessary adjustments to the release, ensuring all features are complete, and all known bugs are fixed.
+   Update version numbers, README, CHANGELOG, and any other files as needed with the new version details.
+   And then commit it : 
+
+   ```bash
+   git commit -am "Prepare release <versionNumber>"
+   ```
+
+3. **Push the release branch to the remote repository**
+
+   ```bash
+   git push origin release/<versionNumber>
+   ```
+
+## Step 2: Finalize the Release
+
+1. **Merge the release branch into main**
+
+   ```bash
+   git checkout main
+   git merge --no-ff release/<versionNumber>
+   ```
+
+2. **Tag the release with the version number to create a snapshot of the release in the repository's history**
+
+   ```bash
+   git tag -a <versionNumber> -m "Release <versionNumber>"
+   ```
+
+3. **Push the changes and tags to the remote repository**
+
+   ```bash
+   git push origin main
+   git push origin <versionNumber>
+   ```
+
+4. **Merge the release branch back into develop to ensure any last-minute changes made in the release branch are not lost**
+
+   ```bash
+   git checkout develop
+   git merge --no-ff release/<versionNumber>
+   git push origin develop
+   ```
+
+5. **Delete the remote release branch**
+
+   ```bash
+   git push origin --delete release/<versionNumber>
+   ```
+
+   Optionally, delete the local release branch:
+
+   ```bash
+   git branch -d release/<versionNumber>
+   ```
