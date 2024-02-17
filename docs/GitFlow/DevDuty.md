@@ -1,17 +1,19 @@
 # Developer duty
 
-Here is the explanation of a developer's duty with GitLab. In GitLab repositories, the GitFlow is the branching strategy that has been put in place. 
+Here is the explanation of a developer's duty with GitFlow branching strategy.
 [You can look at an overview of this strategy here](https://gitversion.net/docs/learn/branching-strategies/gitflow/). 
 
 It has two branches. 
   * One call Main, that represents what has been delivered.
   * One call Develop, that represents what has been developed since the last release.
 
-The developer has 3 duty : 
+Developers have three core development processes:
+
 1. Feature development
 2. Bug fixes in production
 3. Preparing releases
 
+Here are the detailed steps on how to perform these with Git commands.
 
 # 1. Feature development
 
