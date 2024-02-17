@@ -5,7 +5,7 @@ Here is the explanation of a developer's duty with GitHub. In GitHub repositorie
 [You can look at an overview of this strategy here](https://gitversion.net/docs/learn/branching-strategies/gitflow/). 
 
 It has two branches. 
-  * One call Main, that represents what has been delivered.
+  * One call Master, that represents what has been delivered.
   * One call Develop, that represents what has been developed since the last release.
 
 # 1. Feature to develop
