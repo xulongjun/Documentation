@@ -15,7 +15,7 @@ It has two branches.
 When you have a new US, you need to create a new branch from the develop branch. 
 In Visual Studio :
 	1. Go to "Team Explorer";
-	2. Click on the project of the US in git.daimler.com. If you don't see that option, [configure GitHub Connection in Visual Studio](./VisualStudioGitHubConnection.md);
+	2. Click on the project of the US in. If you don't see that option, [configure GitHub Connection in Visual Studio](./VisualStudioGitHubConnection.md);
 	3. Click on or clone the repository of the project to your computer;
 	4. Click on "Git Repository";
 	5. Click on remotes => origin => develop;
@@ -69,7 +69,7 @@ Your code is now merged on the develop branch.
 When you have a new fix to correct, you need to create a new branch from the master branch. 
 In Visual Studio :
 	1. Go to "Team Explorer";
-	2. Click on the project of the US in git.daimler.com. If you don't see that option, [configure GitHub Connection in Visual Studio](./VisualStudioGitHubConnection.md);
+	2. Click on the project of the US in. If you don't see that option, [configure GitHub Connection in Visual Studio](./VisualStudioGitHubConnection.md);
 	3. Click on or clone the repository of the project to your computer;
 	4. Click on "Git Repository";
 	5. Click on remotes => origin => master;
