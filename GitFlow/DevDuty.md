@@ -12,7 +12,7 @@ It has two branches.
 
 In this section, we outline the process for developers to create a local feature branch for new user stories, adhering to the GitFlow branching strategy. This ensures that new features are developed in isolation, improving codebase stability and facilitating parallel development.
 
-## 1.1. Create local feature branch for a new user story.
+## Step 1: Create a New Feature Branch
 
 To start working on a new feature, you'll need to create a feature branch based on the develop branch. Here are the steps to follow using the Git command line:
 
@@ -22,7 +22,7 @@ To start working on a new feature, you'll need to create a feature branch based 
 
    ```bash
    git checkout develop
-   ```
+
 2. **Pull the Latest Updates**
 
    Before creating a new feature branch, make sure your `develop` branch is up to date with the remote repository. This minimizes merge conflicts and ensures you're working with the latest codebase.
@@ -31,7 +31,79 @@ To start working on a new feature, you'll need to create a feature branch based 
 
    ```bash
    git pull origin develop
+
+3. **Create a New Feature Branch**
+
+   To start working on your feature, create a branch off the `develop` branch. Use a descriptive name for your branch that reflects the feature you're working on. The convention is `feature/<feature-name>`.
+
+   ```bash
+   git checkout -b feature/<feature-name>
+
+
+## Step 2: Develop Your Feature
+
+Develop your feature locally, commit your changes frequently, and push your branch to the remote repository regularly to ensure your work is backed up.
+
+1. **Committing Changes**
+
+   As you make progress, commit your changes with meaningful messages. This keeps the project history clear and informative.
+
+   ```bash
+   git add .
+   git commit -m "A descriptive message about the change"
    ```
+
+2. **Push your feature branch to the remote repository**
+
+   ```bash
+   git push -u origin feature/<feature-name>
+
+## Step 3: Keep Your Feature Branch Up to Date
+
+It's important to regularly merge changes from the develop branch into your feature branch to minimize merge conflicts.
+
+1. **Switch to the develop branch**
+
+   ```bash
+   git checkout develop
+
+2. **Pull the latest changes from origin/develop**
+
+   ```bash
+   git pull origin develop
+
+3. **Switch back to your feature branch**
+
+   ```bash
+   git pull origin develop
+
+4. **Merge changes from develop into your feature branch**
+
+   ```bash
+   git merge develop
+
+## Step 4: Code Review and Pull Request
+
+Once your feature is complete and tested, it's time to merge it into the develop branch. This is done through a pull request.
+
+1. **Push your branch to the remote repository, if you haven't already**
+
+   ```bash
+   git push origin feature/<feature-name>
+
+2. **Go to the repository on your Git hosting service (e.g., GitHub, Bitbucket, GitLab) and create a new pull request for your feature branch into the develop branch.**
+3. **Fill out the pull request form with a title and description that clearly describe the feature and any relevant details. Assign reviewers as per your project's workflow.**
+4. **Once the pull request is approved and any discussions are resolved, merge your feature branch into develop.**
+5. **Delete the Feature Branch**
+   After your feature branch has been successfully merged, it's good practice to delete the branch from the remote repository to keep the branch list clean.
+   Delete the remote feature branch:
+
+   ```bash
+   git push origin --delete feature/<feature-name>
+
+   Optionally, delete the local branch if you no longer need it:
+   git branch -d feature/<feature-name>
+
 
 # 2. Bug in production
 
