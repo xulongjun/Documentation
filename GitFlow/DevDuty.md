@@ -101,8 +101,10 @@ Once your feature is complete and tested, it's time to merge it into the develop
 
    ```bash
    git push origin --delete feature/<feature-name>
+   ```
 
    Optionally, delete the local branch if you no longer need it:
+   ```bash
    git branch -d feature/<feature-name>
 
 
