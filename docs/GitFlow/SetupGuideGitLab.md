@@ -12,11 +12,11 @@ Prerequisites
 
 ## Step 1: Create a New Project in Gitlab
 
-1. Click on the "New project" button from the dashboard.
-2. Choose a project name that reflects your naming conventions. For projects following GitFlow, consider a name that easily identifies your project's scope and purpose.
-3. Fill in the project description, visibility level (private, internal, or public), and any other necessary details.
-4. It's recommended to select "Initialize repository with a README" to enable immediate cloning and workflow setup.
-5. Click on the "Create project" button. 
+- Click on the "New project" button from the dashboard.
+- Choose a project name that reflects your naming conventions. For projects following GitFlow, consider a name that easily identifies your project's scope and purpose.
+- Fill in the project description, visibility level (private, internal, or public), and any other necessary details.
+- It's recommended to select "Initialize repository with a README" to enable immediate cloning and workflow setup.
+- Click on the "Create project" button. 
 
 ## Step 2: Cloning the Project Locally
 
@@ -30,7 +30,7 @@ After the project is created, navigate to the project's main page on GitLab. Fin
 
 1. **Add .gitignore File**
    Create a .gitignore file in your project directory to specify intentionally untracked files to ignore. We can use template for the different kind of project. 
-2. **Add GitLab CICD Configuration File (if we have)** 
+2. **Add GitLab CICD Configuration File (if exists)** 
    Create a file named .gitlab-ci.yml at the root of your repository. This file will define your CI/CD pipeline in GitLab.
 
 ## Step 4: Preparing the Code and pushing the First Version to Main
