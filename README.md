@@ -1,7 +1,8 @@
 # Welcome to Our Git Documentation Repository
 
-[Developper duty in GitFlow](https://xulongjun.github.io/Documentation-Git/GitFlow/DevDuty). 
-[GitLab Repository Setup Guide: Implementing GitFlow](https://xulongjun.github.io/Documentation-Git/GitFlow/SetupGuideGitLab). 
+[Developper duty in GitFlow](https://xulongjun.github.io/Documentation-Git/GitFlow/DevDuty).<br>
+
+[GitLab Repository Setup Guide: Implementing GitFlow](https://xulongjun.github.io/Documentation-Git/GitFlow/SetupGuideGitLab).<br>
 
 ## Introduction
 In the ever-evolving landscape of software development, effective version control is pivotal to the success of any project. Recognizing this, we have established this repository as a central hub for comprehensive Git documentation tailored specifically for teams. Our aim is to empower our team members with the knowledge and tools necessary to leverage Git's full potential, facilitating a more streamlined, collaborative, and efficient development process.
