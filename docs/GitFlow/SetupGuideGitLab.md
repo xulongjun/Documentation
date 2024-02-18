@@ -69,7 +69,7 @@ Before pushing your first version, make sure your codebase is clean and follows 
    git push origin develop
    ```
 
-# 3. Setting Up User Permissions (To be defined)
+# 3. Setting Up User Permissions (To be completed)
 
 ## Step 1: Add Team Members and Assign Roles
 
@@ -80,24 +80,20 @@ Select the appropriate role for each team member. GitLab roles include Guest, Re
 Assign a "Maintainer" role to team members who need to create protected branches or manage project settings.
 Developers who contribute to the codebase should be assigned the "Developer" role.
 
-# 4. Configuring Branch Protection Rules (Optional and To be defined)
+# 4. Configuring Branch Protection Rules (Optional and To be completed)
 
 [You can look at the documentation Gitlab here](https://docs.gitlab.com/ee/user/project/protected_branches.html).
 
 ## Step 1: Protect the main Branch
 
-1. **Navigate to Repository Settings Protected Branches section** 
-
 Within your project in GitLab, go to "Settings" > "Repository."
 
 Scroll down to find the "Protected Branches" section.
 
-3. **Configure the protection settings**
+**Configure the protection settings** : 
 
-Allowed to merge: Choose "Maintainers" and "developer" to ensure only maintainers and "developer" can merge changes into main.
-
-Allowed to push: Typically, you would also restrict push access to "Maintainers" and "developer" to safeguard your production code.
-
+- Allowed to merge: Choose "Maintainers" and "developer" to ensure only maintainers and "developer" can merge changes into main.
+- Allowed to push: Typically, you would also restrict push access to "Maintainers" and "developer" to safeguard your production code.
 
 ## Step 2: Protect the developer Branch
 
@@ -105,7 +101,7 @@ Repeat the protection process for the develop branch.
 
 This ensures that direct pushes are controlled and that changes are introduced through merge requests, maintaining the integrity of your development efforts.
 
-# 5. Configure Merge Request Approvals and CI/CD Checks in GitLab (Optional and To be defined)
+# 5. Configure Merge Request Approvals and CI/CD Checks in GitLab (Optional and To be completed)
 
 [You can look at the documentation Gitlab here](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html).
 
